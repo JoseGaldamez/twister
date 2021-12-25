@@ -1,0 +1,35 @@
+@import '../../../../scss/index.scss';
+
+.signin-signup__left {
+    background-color: $primary-light;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    position: relative;
+
+    img {
+      position: absolute;
+      right: -55%;
+    }
+    div {
+      z-index: 1;
+
+      h2 {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+        font-size: 30px;
+        font-weight: bold;
+
+        svg {
+          margin-right: 20px;
+          font-size: 30px;
+          width: 40px;
+        }
+      }
+    }
+  }
+

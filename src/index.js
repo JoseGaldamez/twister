@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './index.scss';
+import 'react-toastify/scss/main.scss'
+import 'react-toastify/dist/ReactToastify.css'
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,0 +1,45 @@
+
+@import "./scss/index.scss";
+
+body{
+    background-color: $background-grey-dark;
+    color: $font-light;
+}
+
+.btn{
+    box-shadow: none !important;
+
+}
+
+.btn.btn-primary{
+    background-color: $primary;
+    border-color: $primary;
+    color: white;
+
+    &:hover{
+        background-color: rgba(26, 146, 218, 1);
+    }
+}
+
+.btn.btn-outline-primary{
+    border-color: $primary;
+    color: $primary;
+    &:hover,&:active,&:focus{
+        background-color: rgba(29, 261, 241, 0.1) !important;
+    }
+}
+
+input.form-control, textarea.form-control{
+    background-color: $background-dark-light !important;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid $border-grey;
+    color: $font-light !important;
+    margin: 0px 0px 20px 0px;
+
+    &:focus{
+        background-color: $background-dark-light;
+        box-shadow: none;
+        border-bottom: 1px solid $border-primary;
+    }
+}

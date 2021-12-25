@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Signinsignup from './pages/SignInSignUp';
+import { ToastContainer } from 'react-toastify';
+import { AuthContext } from './utils/context';
+import { isUserLoggedApi } from './api/auth';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+    const [user, setuser] = useState(null);
+
+    useEffect(() => {
+
+        setuser( isUserLoggedApi() );
+
+        return () => {
+            
+        }
+        
+    }, [])
+
+    
+
+    return (
+        <AuthContext.Provider value={user} > 
+
+            { user ? 
+                <h1>You are logged</h1> :
+                <Signinsignup /> 
+            } 
+            <ToastContainer 
+                position='top-right' 
+                autoClose={5000} 
+                hideProgressBar 
+                newestOnTop={false} 
+                closeOnClick 
+                rtl={false} 
+                pauseOnHover />
+
+        </AuthContext.Provider > );
+
+
 }
+
 
 export default App;
