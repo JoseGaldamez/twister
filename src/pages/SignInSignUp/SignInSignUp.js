@@ -5,12 +5,16 @@ import RightComponent from './Components/RightComponent/RightComponent';
 
 import './SignInSignUp.scss'
 
-const Signinsignup = () => {
+const Signinsignup = props => {
+
+    const {setreFreshCheckLogin} = props;
+
+
     return (
         <Container className='signin-signup' fluid>
             <Row>
                 <LeftComponent />
-                <RightComponent />
+                <RightComponent setreFreshCheckLogin={setreFreshCheckLogin} />
             </Row>
         </Container>
     );

@@ -7,7 +7,10 @@ import SignUpForm from '../../../../components/SignUpForm';
 
 import './rightcomponent.scss';
 
-const RightComponent = () => {
+const RightComponent = props => {
+
+    const {setreFreshCheckLogin}=props;
+
 
     const [showModal, setShowModal] = useState(false)
     const [contentModal, setContentModal] = useState(null)
@@ -25,7 +28,7 @@ const RightComponent = () => {
                 <h3>Únete a Twister hoy mismo</h3>
 
                 <Button onClick={() => openModal( <SignUpForm setShow={setShowModal} /> ) } variant="primary">Regístrate</Button>
-                <Button onClick={() => openModal( <SignInForm setShow={setShowModal} /> ) } variant="outline-primary">Iniciar Sesión</Button>
+                <Button onClick={() => openModal( <SignInForm setShow={setShowModal} setreFreshCheckLogin={setreFreshCheckLogin}  /> ) } variant="outline-primary">Iniciar Sesión</Button>
                 <BasicModal show={showModal} setShow={setShowModal} >
                     <div> {contentModal} </div>
                 </BasicModal>

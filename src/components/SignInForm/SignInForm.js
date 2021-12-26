@@ -8,7 +8,7 @@ import './SignInForm.scss';
 
 const SignInForm = (props) => {
 
-    const {setShow} = props;
+    const {setShow, setreFreshCheckLogin} = props;
 
     const [formData, setformData] = useState(initilFormValues());
     const [loading, setloading] = useState(false)
@@ -41,7 +41,8 @@ const SignInForm = (props) => {
                         //console.log(resp.token);
                         toast.success("Bienvenido(a)");
                         setTokenApi(resp.token);
-                        setShow(false);
+                        setreFreshCheckLogin(true);
+                        //setShow(false);
                     }
                 }).catch(err => {
                     toast.error("Error del servidor, intentelo más tarde");
