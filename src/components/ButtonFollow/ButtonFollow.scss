@@ -1,0 +1,21 @@
+@import '../../scss/index.scss';
+
+
+.unfollow{
+    color: white;
+    font-weight: bold !important;
+    &:hover{
+        border-color: $danger !important;
+        background-color: $danger !important;
+        color: white;
+
+        &::before{
+            color: white;
+            content: "Dejar de seguir";
+        }
+
+        span{
+            display: none;
+        }
+    }
+}

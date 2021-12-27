@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './LeftMenu.scss';
@@ -7,13 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faPowerOff, faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { logoutApi } from '../../api/auth';
 import useAuth from '../../hooks/userAuth';
+import TweetModal from '../modals/TweetModal';
 
 
 
 
 const LeftMenu = props => {
 
-    const {setreFreshCheckLogin} = props;
+    const [showModal, setShowModal] = useState(false);
+
+    const {setreFreshCheckLogin, changeRefreshing} = props;
     const user = useAuth();
     
     
@@ -22,9 +25,11 @@ const LeftMenu = props => {
         setreFreshCheckLogin(true);
     }
 
+    
 
     return (
         <div className='left-menu'>
+            
             <img className='logo' src={LogoWhite} alt="Twister" />
 
             <Link to="/"> <FontAwesomeIcon icon={faHome} />Inicio</Link>
@@ -33,7 +38,8 @@ const LeftMenu = props => {
             <Link to="/" onClick={signOut}><FontAwesomeIcon icon={faPowerOff} />Salir</Link>
 
 
-            <Button variant='primary'>Twistear</Button>
+            <Button variant='primary' onClick={ () => setShowModal(true) } >Twistear</Button>
+            <TweetModal show={showModal} changeRefreshing={changeRefreshing} setShow={setShowModal} />
 
         </div>
     );

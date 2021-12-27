@@ -22,3 +22,65 @@ export const getUserApi = id => {
 
 }
 
+export const uploadBannerApi = file => {
+    const url = `${API_HOST}/uploadBanner`;
+
+    const formData = new FormData();
+    formData.append("banner", file);
+
+    const params = {
+        method:"POST",
+        headers: {
+            "Authorization": `Bearer${getTokenUserApi()}`
+        },
+        body: formData
+    }
+
+    return fetch(url, params).then( resp => resp.json() ).then(result => result).catch(err => err);
+
+}
+
+
+
+
+
+
+export const uploadAvatarApi = file => {
+
+    const url = `${API_HOST}/uploadAvatar`;
+
+    const formData = new FormData();
+
+    formData.append("avatar", file);
+
+    const params = {
+        method:"POST",
+        headers: {
+            "Authorization": `Bearer${getTokenUserApi()}`
+        },
+        body: formData
+    }
+
+
+    return fetch(url, params).then( resp => resp.json() ).then(result => result).catch(err => err);
+
+}
+
+export const updateUser = user =>{
+
+    const url = `${API_HOST}/updateProfile`;
+
+    const params = {
+        method:"PUT",
+        headers: {
+            "Authorization": `Bearer${getTokenUserApi()}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    }
+
+    return fetch(url, params).then(resp => resp).catch(err => err);
+
+
+}
+

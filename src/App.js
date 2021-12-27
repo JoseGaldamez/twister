@@ -17,6 +17,7 @@ const App = () => {
         setuser( isUserLoggedApi() );
 
         setreFreshCheckLogin(false);
+
        // setLoadUser(true);
         
     }, [refreshCheckLogin])
