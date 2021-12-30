@@ -41,10 +41,6 @@ export const uploadBannerApi = file => {
 }
 
 
-
-
-
-
 export const uploadAvatarApi = file => {
 
     const url = `${API_HOST}/uploadAvatar`;
@@ -60,7 +56,6 @@ export const uploadAvatarApi = file => {
         },
         body: formData
     }
-
 
     return fetch(url, params).then( resp => resp.json() ).then(result => result).catch(err => err);
 
@@ -84,3 +79,20 @@ export const updateUser = user =>{
 
 }
 
+export const getUsersApi = ( paramsURL ) => {
+    const url = `${API_HOST}/listUsers?${paramsURL}`;
+
+    const params = {
+        method:"GET",
+        headers: {
+            "Authorization": `Bearer${getTokenUserApi()}`,
+            "Content-Type": "application/json"
+        },
+    }
+
+    return fetch(url, params).then(resp => resp.json()).then(result => result).catch(err => {
+        console.log(err);
+        return []; 
+    });
+
+}

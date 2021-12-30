@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Placeholder } from 'react-bootstrap';
+import { Button, Placeholder, Spinner } from 'react-bootstrap';
 
 import BasicLayout from '../../layout/BasicLayout';
 //import { withRouter } from '../../utils/withRouter';
@@ -25,34 +25,76 @@ const User = props => {
 
     const [tweets, setTweets] = useState(null)
 
+    const [page, setpage] = useState(1);
+    const [loadingTweets, setLoadingTweets] = useState(false);
+    const [showLoadMore, setShowLoadMore] = useState(true);
+
+    const [load, setload] = useState(true);
+
     const loggedUser = useAuth();
 
 
     const [refreshing, setrefreshing] = useState(true);
 
     const changeRefreshing = () =>{
-        setrefreshing( false );
+        setrefreshing( !refreshing );
     }
-
 
 
     useEffect(() => {
 
-        getUserApi(id).then(resp => {
-            if (!resp) toast.error("Este usuario no existe");
-            setuser(resp);
+        const gu = getUserApi(id);
+
+        gu.then(resp => {
+
+            if (load) {
+
+                if (!resp) toast.error("Este usuario no existe");
+                setuser(resp);
+                
+            }
+
         }).catch(err => {
             toast.error("Este usuario no existe");
         });
 
-        getUserTweets(id, 1).then(resp => {
-            setTweets(resp);
+        const gt = getUserTweets(id, 1);
+
+        gt.then(resp => {
+            if (load) {
+                setTweets(resp);
+            }
         }).catch(err => {
-            setTweets([]);
+            if (load) {
+                setTweets([]);
+            }
         });
 
+        return () => {
+            setload(false);
+        }
 
-    }, [id, refreshing])
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [id, refreshing]);
+
+
+    const getMoreTwist = () => {
+        const temporalPage = page + 1;
+        setLoadingTweets(true);
+
+        
+        getUserTweets(id, temporalPage).then(resp => {
+            if (!resp) {
+                setShowLoadMore(false);
+            } else {
+                setTweets( [...tweets, ...resp] );
+            }
+        });
+
+        setpage(temporalPage);
+        setLoadingTweets(false);
+    }
 
 
     return (
@@ -71,6 +113,14 @@ const User = props => {
             <div className='user__tweets'>
                 <h3>Twits</h3>
                 { tweets && <ListTweets tweets={tweets} /> }
+
+                {
+                    showLoadMore ? (<Button onClick={getMoreTwist}>
+                                        { loadingTweets ? 
+                                        <Spinner as="span" animation="grow" size='sm' role="status" arian-hidden="true" /> :
+                                        "Obtener más twist"}
+                                    </Button>) : ( <div className='no-tweets'>No hay más twist</div> )
+                }
             </div>
 
         </BasicLayout>

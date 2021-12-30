@@ -39,12 +39,14 @@ const SignUpForm = (props) => {
         } else {
             if ( !isValidEmail(formData.email) ) {
                 toast.warning("Email invalido")
+                setloading(false);
             } else if ( formData.password !== formData.repeatPassword ) {
                 toast.warning("Contraseñas diferentes");
+                setloading(false);
             } else if ( size(formData.password) < 6 ) {
                 toast.warning("Contraseñas deben tener al menos 6 caracteres");
+                setloading(false);
             } else {
-                toast.success("Formulario ok")
                 signUpApi({...formData}).then(resp => {
                     if (resp.code) {
                         toast.warning(resp.message);
@@ -61,7 +63,7 @@ const SignUpForm = (props) => {
                 } )
             }
         }
-
+        
     }
 
     return (

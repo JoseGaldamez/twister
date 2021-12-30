@@ -1,7 +1,6 @@
 import { faCalendarAlt, faLink, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import moment from 'moment';
-import {localization} from 'moment/locale/es-mx';
 
 import React from 'react';
 

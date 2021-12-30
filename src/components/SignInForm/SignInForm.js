@@ -8,7 +8,7 @@ import './SignInForm.scss';
 
 const SignInForm = (props) => {
 
-    const {setShow, setreFreshCheckLogin} = props;
+    const {setreFreshCheckLogin} = props;
 
     const [formData, setformData] = useState(initilFormValues());
     const [loading, setloading] = useState(false)

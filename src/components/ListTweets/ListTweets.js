@@ -6,13 +6,19 @@ import { getUserApi } from '../../api/user';
 
 import AvatarNotFound from '../../assets/placeholderimagen.jpg';
 import { API_HOST } from '../../utils/constants';
+import { replaceURLWithHtmlLink } from '../../utils/functions';
 import './ListTweets.scss';
+
+
+
 
 const ListTweets = props => {
 
     const {tweets} = props;
+
+
     useEffect(() => {
-        console.log(tweets);
+        //console.log(tweets);
     }, [tweets])
 
 
@@ -27,6 +33,7 @@ export default ListTweets;
 
 
 const Tweet = props => {
+
     const {tweet} = props;
     const [userInfo, setUserInfo] = useState(null);
     const [userAvatar, setUserAvatar] = useState(null);
@@ -51,7 +58,7 @@ const Tweet = props => {
                     <span> { moment( tweet.date ).calendar() } </span>
                 </div>
                 <div>
-                    {tweet.message}
+                    <div dangerouslySetInnerHTML={ {__html:replaceURLWithHtmlLink(tweet.message)}  } ></div>
                 </div>
             </div>
         </div>

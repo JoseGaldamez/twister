@@ -1,0 +1,39 @@
+@import "../../scss/index.scss";
+
+.list-users{
+
+    padding: 0px;
+    margin-top: 10px;
+    
+
+    &__user{
+        color: $font-light;
+        border-bottom: 1px solid $border-grey;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        text-decoration: none;
+        transition: all ease 500ms;
+
+        &:hover{
+            color: $font-light;
+            background-color: $background-dark-light;
+            text-decoration: none;
+        }
+
+        img{
+            margin: 10px 10px;
+        }
+
+        h5{
+            margin: 0px;
+            padding: 0px;
+            font-weight: bold;
+        }
+        p{
+            color: $font-grey;
+        }
+
+    }
+}

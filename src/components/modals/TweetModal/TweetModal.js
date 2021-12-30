@@ -73,7 +73,9 @@ const TweetModal = props => {
                             { message.length } / 280
                         </span>
 
-                        <Button type='submit' disabled={ message.length > maxlength || message.length < 1 } >Twister</Button>
+                        <Button type='submit' disabled={ message.length > maxlength || message.length < 1 } >
+                            { loading ? "Twisteando" : "Twister" }
+                        </Button>
 
 
                     </Form>

@@ -25,11 +25,36 @@
     }
 
     &__tweets{
+
+        margin-bottom: 5vh;
+
         h3{
             padding: 15px;
             font-size: 18px;
             border-bottom: 1px solid $border-grey;
             padding-left: 20px;
+        }
+
+        .no-tweets{
+            display: block;
+            text-align: center;
+            padding-top: 5vh;
+        }
+
+        > .btn.btn-primary {
+            display: flex;
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: transparent;
+            border: 0;
+
+            &:hover, &:focus{
+                background-color: transparent !important;
+                color: $primary;
+            }
+
+
         }
     }
 

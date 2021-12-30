@@ -18,7 +18,7 @@ const LeftMenu = props => {
 
     const {setreFreshCheckLogin, changeRefreshing} = props;
     const user = useAuth();
-    
+     
     
     const signOut = () => {
         logoutApi();
@@ -33,7 +33,7 @@ const LeftMenu = props => {
             <img className='logo' src={LogoWhite} alt="Twister" />
 
             <Link to="/"> <FontAwesomeIcon icon={faHome} />Inicio</Link>
-            <Link to="/user/"> <FontAwesomeIcon icon={faUsers} />Usuarios</Link>
+            <Link to="/users/"> <FontAwesomeIcon icon={faUsers} />Usuarios</Link>
             <Link to={`/user/${user?._id}`}><FontAwesomeIcon icon={faUser} />Perfil</Link>
             <Link to="/" onClick={signOut}><FontAwesomeIcon icon={faPowerOff} />Salir</Link>
 

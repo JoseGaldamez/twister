@@ -1,6 +1,6 @@
 import React from 'react';
-import {Modal, ModalBody, ModalTitle} from 'react-bootstrap';
-import ModalHeader from 'react-bootstrap/esm/ModalHeader';
+import {Modal} from 'react-bootstrap';
+
 
 import LogoWhite from '../../../assets/png/logo-white.png';
 import './BasicModal.scss';
