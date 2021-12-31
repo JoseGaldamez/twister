@@ -43,7 +43,11 @@ export const signInApi = user => {
         body: JSON.stringify( user )
     }
 
+    console.log(params);
+
     return fetch( url, params ).then( resp => {
+        console.log(resp);
+        
         if (resp.status >= 200 && resp.status < 300) {
             return resp.json();
         } else {

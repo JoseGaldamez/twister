@@ -38,3 +38,19 @@ export const getUserTweets = (id, page) => {
 
     return fetch(url, params).then(resp => resp.json() ).catch(err => err);
 }
+
+
+export const getTweetsFollowersApi = (page=1) => {
+
+    const url = `${API_HOST}/listTweets?page=${page}`;
+
+    const params = {
+        headers:{
+            "Content-Type": "application/json",
+            "Authorization": `Bearer${getTokenUserApi()}`
+        }
+    }
+
+    return fetch(url, params).then(resp => resp.json() ).then(response => response ).catch(err => err);
+
+}
