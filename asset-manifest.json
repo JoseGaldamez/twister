@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/twister/static/css/main.3dda56f2.css",
+    "main.js": "/twister/static/js/main.0385ed84.js",
+    "static/js/787.0030d388.chunk.js": "/twister/static/js/787.0030d388.chunk.js",
+    "static/media/error-404.png": "/twister/static/media/error-404.fe6e5b62fe9e18403f7c.png",
+    "static/media/logo-white.png": "/twister/static/media/logo-white.298bb4f447cf4ab9cd15.png",
+    "static/media/logo.png": "/twister/static/media/logo.f7b1b93bc5fecc3441af.png",
+    "static/media/placeholderimagen.jpg": "/twister/static/media/placeholderimagen.75e00f766eaf78738633.jpg",
+    "index.html": "/twister/index.html",
+    "main.3dda56f2.css.map": "/twister/static/css/main.3dda56f2.css.map",
+    "main.0385ed84.js.map": "/twister/static/js/main.0385ed84.js.map",
+    "787.0030d388.chunk.js.map": "/twister/static/js/787.0030d388.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3dda56f2.css",
+    "static/js/main.0385ed84.js"
+  ]
+}
